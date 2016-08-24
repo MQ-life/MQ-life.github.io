@@ -1,0 +1,4 @@
+INSERT INTO `dede_flink` VALUES('2','1','http://www.yiquantou.com','飘花电影网','','','','1226375403','1','2');
+INSERT INTO `dede_flink` VALUES('9','1','http://www.henhaixiu.com','多玩图库','','','','1227772717','1','2');
+INSERT INTO `dede_flink` VALUES('8','1','http://www.hutui6.com','微信互推','','','','1227772703','1','2');
+INSERT INTO `dede_flink` VALUES('10','10','http://www.adminbuy.cn','织梦模板','','','','1413205256','1','2');

@@ -1,0 +1,46 @@
+<?php
+$z[0]=Array("field","",61,80);
+$z[0][4]['name']="title";
+$z[1]=Array("global","",81,107);
+$z[1][4]['name']="cfg_webname";
+$z[2]=Array("field","",148,177);
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",217,275);
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("global","",403,435);
+$z[4][4]['name']="cfg_templets_skin";
+$z[5]=Array("global","",520,552);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("global","",602,634);
+$z[6][4]['name']="cfg_templets_skin";
+$z[7]=Array("global","",690,722);
+$z[7][4]['name']="cfg_templets_skin";
+$z[8]=Array("global","",794,826);
+$z[8][4]['name']="cfg_templets_skin";
+$z[9]=Array("global","",911,943);
+$z[9][4]['name']="cfg_templets_skin";
+$z[10]=Array("global","",1000,1032);
+$z[10][4]['name']="cfg_templets_skin";
+$z[11]=Array("global","",1209,1241);
+$z[11][4]['name']="cfg_templets_skin";
+$z[12]=Array("include","",1311,1346);
+$z[12][4]['filename']="head.htm";
+$z[13]=Array("field","\$ID = @me; \$sql = \"SELECT * FROM `dede_arctype` WHERE id=\$ID\";\$query = mysql_query(\$sql);\$row=mysql_fetch_array(\$query); \$relID = \"\$row[reid]\"; if(\$relID == 0) {@me = \$row[typename];}else{\$sql = \"SELECT `typename` FROM `dede_arctype` WHERE id=\$relID\";\$query = mysql_query(\$sql);\$row=mysql_fetch_array(\$query); @me = \$row[typename];}",1486,1870);
+$z[13][4]['name']="typeid";
+$z[13][4]['runphp']="yes";
+$z[14]=Array("field","",1929,1958);
+$z[14][4]['name']="position";
+$z[15]=Array("channel","\r\n<li class=\"\"><a href='[field:typeurl/]'>[field:typename/]</a></li>\r\n",2068,2253);
+$z[15][4]['type']="son";
+$z[15][4]['currentstyle']="<li class='hover'><a href='~typelink~'>~typename~</a></li>";
+$z[16]=Array("field","",2576,2597);
+$z[16][4]['name']="content";
+$z[17]=Array("global","",2748,2780);
+$z[17][4]['name']="cfg_templets_skin";
+$z[18]=Array("global","",2933,2965);
+$z[18][4]['name']="cfg_templets_skin";
+$z[19]=Array("include","",6953,6990);
+$z[19][4]['filename']="footer.htm";
+
+?>

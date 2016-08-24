@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="{dede:global.cfg_templets_skin/}/js/css3-mediaqueries.js"></script>
+<script src="{dede:global.cfg_templets_skin/}/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/common.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/config.js"></script>
+<!--[if lte IE 6]><SCRIPT src="{dede:global.cfg_templets_skin/}/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.lazyload.js"></script></head>
+<body class="indexBody">
+{dede:include filename="head.htm"/}
+<script type="text/javascript">var module_id= 23,item_id=0,content_id='content';</script>
+<section class="mcur">
+<div class="wrap">
+<h1>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}<span>Case</span></h1>
+<h2>
+<span></span>当前位置:{dede:field name='position'/}</h2>
+</div>
+</section>
+<menu class="PageMenuList">
+<div class="wrap">
+<ul id="PagemenuClass">   
+{dede:channel type='son' currentstyle="<li class='hover'><a href='~typelink~'>~typename~</a></li> "}
+<li class=""><a href='[field:typeurl/]'>[field:typename/]</a></li>
+{/dede:channel}
+    <div class="cls"></div>                                            
+    </ul>
+</div>
+</menu>
+<div class="wrap">
+<section class="indexCaseList js_check_width_list"  style="padding-bottom:30px" id="CaseList">
+{dede:list pagesize='10'}
+<figure class="indexCaseItem">
+    <p><img  original="[field:picname /]" src="/templets/moban/images/lazy.gif" width="232" height="170" alt="[field:fulltitle/]" /><a href='[field:arcurl /]' title='[field:fulltitle/]' class='link'><span>
+    设计风格：[field:fg/]<br>
+        建筑类型：[field:typename /]<br>
+        实际面积：[field:mj/]㎡</span></a></p>
+     <figcaption>[field:description function='cn_substr(@me,40)'/]...</figcaption>
+     </figure>
+{/dede:list}
+ <div class="cls"></div>
+</section>
+<div class="dede_pages">
+   <ul class="pagelist">
+    {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+   </ul>
+  </div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+LoadPageSize();
+$("img").lazyload();
+if($('#CaseList .indexCaseItem').length<20){
+$('#loadmore a').hide(0);
+}
+if(select_cityid!=''){
+$('#All_area').removeClass('green');
+}
+})
+var select_cityid = 0;
+
+function comptime(beginTime,endTime){
+    var secondNum = parseInt((endTime-beginTime*1000)/1000);//计算时间戳差值   
+ 
+    if(secondNum>=0&&secondNum<60){
+        return secondNum;
+    }
+    else if (secondNum>=60&&secondNum<3600){
+        var nTime=parseInt(secondNum/60);
+        return nTime;
+    }
+    else if (secondNum>=3600&&secondNum<3600*24){
+        var nTime=parseInt(secondNum/3600);
+        return nTime;
+    }
+    else{
+        var nTime = parseInt(secondNum/86400);
+        return nTime;
+    }
+} 
+var selectType_0,selectType_1,selectType_2,selectType_3,selectType_4,selectType_5,selectType_6;
+var fpages=1;
+var morestact = true;
+var nowtime = (new Date).getTime();
+var webroot = "/";
+selectType_0 = nowCity;
+var temp_title =null;
+function selectCase(mode){
+$('#loadmore span').addClass('loading');
+var temp_case = '';
+$.getJSON('../ajax/selectCase.php',{area:selectType_0,leixing:selectType_1,mianji:selectType_2,fengge:selectType_3,sexi:selectType_4,zuixin:selectType_5,dangci:selectType_6,fpage:fpages},function(date){
+$('#loadmore span').removeClass('loading');
+if(date=='' || date==null){
+morestact = false;
+$('#loadmore a').fadeOut(300);
+if(!mode){
+$('#CaseList').html("<p class=f14>暂时还没有添加案例，点击所有查看所有案例。</p>");
+}
+return 0;
+}
+if(date.length==20){
+morestact = true;
+$('#loadmore a').fadeIn(300);
+}
+
+$.each(date,function(idx,e){
+       var temp_new ='';
+   temp_title = e['title'].length>17?(e['title'].substring(0,15)+'...'):e['title'];
+if(comptime(e['addtime'],nowtime)<5){
+temp_new = "<span class='icon_zuixin'></span>";
+}
+temp_case += "<figure class='indexCaseItem'><p><img src='"+e['thumb']+"' width='232' height='170' alt='"+e['title']+"'><a href='"+e['linkurl']+"' target='_blank' class='link' style='top: 170px; '><span>设计风格："+e['fengge']+"<br>建筑类型："+e['fenlei']+"<br>实际面积："+e['mianji']+"㎡</span></a></p><figcaption>"+temp_title+"</figcaption>"+temp_new+"</figure>";
+
+
+
+})
+
+if(mode){
+$('#CaseList').find('.cls').detach();
+$('#CaseList').append(temp_case+"<div class='cls'></div>");
+}else{
+$('#CaseList').html(temp_case+"<div class='cls'></div>");
+}
+LoadPageSize();
+},{dataType: "json"});
+}
+function loadMoreCase(){
+if(morestact){
+fpages++;
+selectCase(1);
+}else{
+$('#loadmore a').fadeOut(300)
+}
+}
+$('.ajax_select_a').each(function(i){
+$(this).children('a').click(function(){
+fpages = 1;
+$(this).addClass('green').siblings('a').removeClass('green');
+if(i==0){
+$('#All_area').removeClass('green');
+}
+if(i<3){
+eval("selectType_"+i+"=  $.trim($(this).attr('value'))") ;
+}else{
+eval("selectType_"+i+"= $.trim($(this).html())") ;
+}
+selectCase(0);
+})
+})
+$('#All_area').click(function(){
+$('.ajax_select_a').eq(0).find('a').removeClass('green');
+$(this).addClass('green');
+selectType_0=0;
+selectCase(0);
+})
+</SCRIPT>
+</html>

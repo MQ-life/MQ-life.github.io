@@ -1,0 +1,72 @@
+﻿<header class="headerTop" id="headerTop">
+<div class="wrap">
+<h1><span class="cm_ico2"></span>全国统一24小时服务热线：<strong class="pchtel">010-123456789</strong><a class="mobilehtel" href="/contact/">010-123456789</a></h1>
+<menu>
+<ul>
+<li>
+<span class="text">在线沟通: </span><a href="http://wpa.qq.com/msgrd?v=3&uin=12345678&site=qq&menu=yes" class="qq cm_ico" title="通过QQ与正邦客服进行沟通" target="_blank"></a>
+<span class="sline cm_ico"></span><a href="#" class="msg cm_ico" title="在线与正邦
+客服进行沟通" target="_blank"></a></li><li class="line"></li>
+<li class="none_720"><a href="/about/" target="_blank" title="关于我们">关于我们</a></li>
+<li class="line none_720"></li>
+<li  class="none_720"><a href="/knowledge/" target="_blank" title="装修常识">装修常识</a></li>
+<li class="line none_720"></li>
+<li  class="none_720"><a href="/contact/" target="_blank" title="联系我们">联系我们</a></li>
+<li class="line none_720"></li>
+<li  class="none_720"><a href="#" title="装饰公司网站模板"><span class="icon_jia cm_ico"></span>装饰公司网站模板</a></li>
+<div class="cls"></div>
+</ul>
+</menu>
+</div>
+</header>
+<nav class="nav">
+<div class="nav_bg">
+<div class="wrap">
+<div class="mobile_nav_wrap">
+<a href="{dede:global.cfg_basehost/}" title="{dede:global.cfg_webname/}" class="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.jpg" alt="{dede:global.cfg_webname/}"/></a><span class="ThiscurCity" id="ThiscurCity" onclick="showAllCopn()"></span><div class="w1024_search" onClick="show_search()"></div>
+<div class="menu_moblie_icon" onClick="show_moblie_menu()"></div>
+<div class="search_moblie_icon" onClick="show_search()"></div>
+<div class="search">
+<form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+<input type="text" class="searchPut" id="searchPut" name="q" >
+<input type="submit" class="cm_ico searchBtn" value=" " id="searchBtn" onClick="if(document.getElementById('searchPut').value=='') {alert ('关键词不能为空'); return false;}location.href='{dede:global.cfg_cmsurl/}/plus/search.php'+escape(document.getElementById('searchPut').value);">
+</form>
+</div>
+</div>
+<ul class="navlist" id="navlist">
+<li class="current"><a href="{dede:global.cfg_basehost/}" title="{dede:global.cfg_webname/}">网站首页<span>Home</span></a></li>
+<li ><a href="/about/" target="_blank" title="关于我们">关于我们<span>About</span></a>
+<menu id="aboutNavMenu">
+{dede:channel typeid='1' type='son' row='20'}
+<a href="[field:typelink/]"  title="[field:typename/]" class="AboutNavMenu6">[field:typename/]</a>
+{/dede:channel}
+</menu>
+</li>
+<li ><a href="/case/" target="_blank" title="成功案例">成功案例<span>Case</span></a>
+<menu>
+{dede:channel typeid='4' type='son' row='20'}
+<a href="[field:typelink/]"  title="[field:typename/]" class="AboutNavMenu6">[field:typename/]</a>
+{/dede:channel}   
+</menu>
+</li>
+<li ><a href="/news/" target="_blank" title="新闻资讯">新闻资讯<span>News</span></a>
+<menu>
+{dede:channel typeid='7' type='son' row='20'}
+<a href="[field:typelink/]"  title="[field:typename/]" class="AboutNavMenu6">[field:typename/]</a>
+{/dede:channel}
+</menu>
+</li>
+<li ><a href="/knowledge/" target="_blank" title="装修知识">装修知识<span>Knowledge</span></a>
+<menu>
+{dede:channel typeid='10' type='son' row='20'}
+<a href="[field:typelink/]"  title="[field:typename/]" class="AboutNavMenu6">[field:typename/]</a>
+{/dede:channel}
+</menu>
+</li>
+<li class="no_bor "><a href="/contact/" target="_blank" title="联系我们">联系我们<span>Contact</span></a></li>
+<div class="cls"></div>
+</ul>                      
+<div class="cls"></div>    
+</div>
+</div>
+</nav>

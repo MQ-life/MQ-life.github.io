@@ -1,0 +1,7 @@
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('siteurl','http://www.zhimd.com/','1407334619');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('checksign','030d00e3f2de8cac19c2dac716a7f382','1407334619');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('pingtoken','5dc5afb3c8bc786611dc9028166e3c99','1407334621');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('bdpwd','b8fe561e6d9fc20401','1407334621');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('setupmaxaid','34','1407334621');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('lastuptime_all','1407334621','1407334621');
+INSERT INTO `dede_plus_baidusitemap_setting` VALUES('lastuptime_inc','','0');

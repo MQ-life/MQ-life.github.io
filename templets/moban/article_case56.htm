@@ -1,0 +1,460 @@
+<!DOCTYPE html><head>
+<meta charset="utf-8" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="{dede:global.cfg_templets_skin/}/js/css3-mediaqueries.js"></script>
+<script src="{dede:global.cfg_templets_skin/}/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/common.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/config.js"></script>
+<!--[if lte IE 6]><SCRIPT src="{dede:global.cfg_templets_skin/}/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.lazyload.js"></script></head>
+<body class="indexBody">
+{dede:include filename="head.htm"/}
+<script type="text/javascript">var module_id= 23,item_id=47,content_id='content';</script>
+<section class="mcur">
+<div class="wrap">
+<h1>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}<span>Case</span></h1>
+<h2>
+<span></span>当前位置:{dede:field name='position'/}</h2>
+</div>
+</section>
+<menu class="PageMenuList">
+<div class="wrap">
+<ul id="PagemenuClass">   
+{dede:channel type='son' currentstyle="<li class='hover'><a href='~typelink~'>~typename~</a></li> "}
+<li class=""><a href='[field:typeurl/]'>[field:typename/]</a></li>
+{/dede:channel}
+    <div class="cls"></div>                                            
+    </ul>
+</div>
+</menu>
+<div class="wrap">
+    <section class="caseDetail">
+    <article class="leftpic" style="position:relative"><a href="javascript:" class="btn_scroll_left" id="btn_scroll_left" title="上一张"></a><img src="" alt="{dede:field name="title"/}" id="caseBigPic" width="980" height="620"><a href="javascript:" class="btn_scroll_right" id="btn_scroll_right" title="下一张"></a></article>
+        <section class="rightCase">
+        <script type="text/javascript">
+         var tempXGT = "{dede:field name='imgurls' alt='图片输出区'}[field:imgsrc/]+++++++++{/dede:field}";
+var tempXGTImg = tempXGT.split('+++++++++');
+  var tempXGT2 = "";
+var tempXGTImg2 = tempXGT2.split('+++++++++');
+        </script>
+             <section class="casepicBox slidePic">
+        <h2>效果图 (<span class="this_count" id="this_count1">1</span>/<span id="count1"></span>)<a href="javascript:" class="btn_Left" title="向左翻页"></a><a href="javascript:" class="btn_Right" title="向右翻页"></a></h2>
+            <div class="casepicUl_box">
+             <ul class="casepicList">
+            <script type="text/javascript">
+           
+for(var i=0;i<tempXGTImg.length;i++){
+if(i%3==0&&i>0){
+document.write('<div class="cls"></div></ul><ul class="casepicList">')
+}
+document.write('<li><a href="javascript:"><img src="'+tempXGTImg[i].replace('/images/defaultpic.gif','')+'" width="93" height="75"></a></li>');
+
+}
+            </script>
+           
+            
+            </ul>
+           
+            <div class="cls"></div>
+            </div>
+        </section>
+        <div class="casepicBoxLine"></div>
+                       
+        </section>
+        <div class="cls"></div>
+        <section class="caseInfo">
+        <h1 id="caseInfoHover" style="overflow:hidden">案例名称：<span class="green" title="{dede:field name="title"/} ">{dede:field name="title"/}</span><span class="icon_jiao"></span><div class="caseTextInfo">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="td1" width="98">设计风格：</td>
+    <td>{dede:field name="fg"/}</td>
+  </tr>
+  <tr>
+    <td class="td1">建筑类型：</td>
+    <td>{dede:field.typename/}</td>
+  </tr>
+  <tr>
+    <td class="td1">实际面积：</td>
+    <td>{dede:field name="mj"/} ㎡</td>
+  </tr>
+</table></span></div></h1>
+           
+            <h3></h3>
+            <div class="cls"></div>
+                                     <h2>项目设计：{dede:field name="xmsj"/}</h2>
+                     </section>
+        
+    </section>
+    
+    <section>
+    <div class="title">
+        <h1>案例详细介绍<span>Case Details</span></h1>
+            <div class="cls"></div>
+            <span class="border"></span>
+        </div>
+        <article class="CaseDetailText">
+  <h1 class="caseDetailTitle">{dede:field name="title"/}</h1>
+            <header class="newstit" style="border:none">
+            <p><span>字号：<a class="icon_js_c" href="javascript:">大</a><a class="icon_js_c icon_js_c_hover" href="javascript:">中</a><a class="icon_js_c" href="javascript:">小</a></span></p>
+        </header>
+        <div id="content" class="content">
+            设计时间：{dede:field name="sj"/} <br>
+            设计面积：{dede:field name="mj"/} 平方米<br>
+            项目类型：{dede:field.typename/}<br>
+            装修风格：{dede:field name="fg"/} <br>
+            <br>
+            <h2>案例设计说明：</h2>
+            {dede:field name='body'/}
+            </div>
+        </article>
+    <section class="Newsbshare">
+        <div class="bshare-custom icon-medium-plus">
+        <div id="bdshare" class="bdshare_b" style="float:left;line-height: 12px;"> 
+<!-- Baidu Button BEGIN -->
+<!-- Baidu Button END --></div>
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt"><b>分享到：</b></span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a class="jiathis_button_weixin">微信</a>
+	<a class="jiathis_button_xiaoyou">朋友网</a>
+	<a href="http://www.jiathis.com/share?uid=890199" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=890199" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+        </div>
+        </section>
+        <section class="newsDetailCur">
+        <ul id="newsDetailCur">
+        <li class="l">{dede:prenext get='pre'/}</li>
+        <li class="r">{dede:prenext get='next'/}</li>
+        <div class="cls"></div>
+        </ul>
+        </section>
+    </section>
+    <section class="indexCase" style="padding-bottom:20px;">
+<div class="wrap">
+    <div class="title">
+        <h1>相关案例推荐<span>Case Recomonended</span></h1>
+            <div class="cls"></div>
+            <a class="btn_Left gray" href="javascript:" id="btn_Left"></a>
+<a class="btn_Right" href="javascript:" id="btn_Right"></a>
+            <span class="border"></span>
+        </div>
+        
+<section class="indexCaseList js_check_width_list mobile_indexCaseList_2" style="height:240px; overflow:hidden" id="MoreCaseBox">
+<div class="MoreCaseBoxCon" id="MoreCaseBoxCon">
+{dede:arclist limit='0,12' titlelen='74' orderby=pubdate  typeid='4'  type='image.' flag='' addfields='fg,mj,sj' channelid='2'}
+ <figure class="indexCaseItem">
+    <p><img  original="[field:picname /]" src="/templets/moban/images/lazy.gif"  width="232" height="170" alt="[field:fulltitle/]" /><a href='[field:arcurl /]' title='[field:fulltitle/]' class='link'><span>
+    设计风格：[field:fg/]<br>
+        建筑类型：[field:typename /]<br>
+        实际面积：[field:mj/]㎡</span></a></p>
+     <figcaption><a href="[field:arcurl/]">[field:title/]</a></figcaption>
+</figure>
+{/dede:arclist}
+</div>
+ <div class="cls"></div>
+</section>
+     </div>
+</section>
+</div>    
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+<script type="text/javascript">
+CaseDetail = true;
+SetMoreCasePage = true;
+$('#newsDetailCur li a.looplink').each(function(){
+$(this).mouseover(function(){
+$(this).next('.newsCurPic').show(50)
+})
+})
+$('#newsDetailCur li').mouseleave(function(){
+$(this).find('.newsCurPic').hide(50)
+})
+$('#caseInfoHover').mouseover(function(){
+$(this).find('.caseTextInfo').show(50)
+}).mouseleave(function(){
+$(this).find('.caseTextInfo').hide(50)
+})
+$(document).ready(function(){
+LoadPageSize();
+$("img").lazyload();
+$('.casepicList li').eq(0).click();
+})
+function SetSrcollLList(wt){
+
+$('.slidePic').each(function(j){
+
+var i = 0, p = $(this).find('.casepicUl_box'), pList =  $(this).find('ul.casepicList'), len = pList.length;
+var elePrev =  $(this).find('.btn_Left'), eleNext =  $(this).find('.btn_Right');
+//var firstClick = false;
+elePrev.addClass('gray');
+eleNext.removeClass('gray');
+p.css('margin-left',0);
+var w = 103, num = wt;
+p.css('width',w*len);
+if (len <= num) 
+eleNext.addClass('gray');
+function prev(){
+if (elePrev.hasClass('gray')) {
+//alert('已经是第一张了');
+return;
+}
+p.animate({
+marginLeft:-(--i) * w
+},500);
+if (i < len - num) {
+eleNext.removeClass('gray');
+}
+if (i == 0) {
+elePrev.addClass('gray');
+}
+}
+function next(){
+if (eleNext.hasClass('gray')) {
+//alert('已经是最后一张了');
+return;
+}
+//p.css('margin-left',-(++i) * w);
+p.animate({
+marginLeft:-(++i) * w
+},500);
+if (i != 0) {
+elePrev.removeClass('gray');
+}
+if (i == len - num) {
+eleNext.addClass('gray');
+}
+}
+elePrev.unbind('click').bind('click',prev);
+eleNext.unbind('click').bind('click',next);
+
+
+})
+}
+$('.icon_js_c').click(function(){
+$(this).addClass('icon_js_c_hover').siblings('.icon_js_c').removeClass('icon_js_c_hover');
+switch($(this).index()){
+case 0:$('#content').css('font-size','16px');
+$('#content p').css('font-size','16px');
+$('#content div').css('font-size','16px');
+break;
+case 1:$('#content').css('font-size','14px');
+$('#content p').css('font-size','14px');
+$('#content div').css('font-size','14px');
+break;
+case 2:
+$('#content').css('font-size','12px');
+$('#content p').css('font-size','12px');
+$('#content div').css('font-size','12px');break;
+}
+})
+function SetMoreCase(cwidth,wt){
+var i = 0, p = $("#MoreCaseBoxCon"), pList =  $('#MoreCaseBoxCon .indexCaseItem'), len = pList.length;
+var elePrev = $('#btn_Left'), eleNext =  $('#btn_Right');
+//var firstClick = false;
+elePrev.addClass('gray');
+eleNext.removeClass('gray');
+pList.removeClass('no_nr');
+if(wt==0){
+elePrev.hide(0)
+eleNext.hide(0);
+p.css('margin-left',0);
+p.css('width','100%');
+return false;
+}else{
+elePrev.show(0)
+eleNext.show(0);
+}
+
+p.css('margin-left',0);
+var w = cwidth, num = wt;
+p.css('width',w*len);
+if (len <= num) 
+eleNext.addClass('gray');
+function prev(){
+if (elePrev.hasClass('gray')) {
+//alert('已经是第一张了');
+return;
+}
+p.animate({
+marginLeft:-(--i) * w
+},500);
+if (i < len - num) {
+eleNext.removeClass('gray');
+}
+if (i == 0) {
+elePrev.addClass('gray');
+}
+}
+function next(){
+if (eleNext.hasClass('gray')) {
+//alert('已经是最后一张了');
+return;
+}
+//p.css('margin-left',-(++i) * w);
+p.animate({
+marginLeft:-(++i) * w
+},500);
+if (i != 0) {
+elePrev.removeClass('gray');
+}
+if (i == len - num) {
+eleNext.addClass('gray');
+}
+}
+elePrev.unbind('click').bind('click',prev);
+eleNext.unbind('click').bind('click',next);
+pList.each(function(n,v){
+$(this).click(function(){
+if(n-i == 2){
+}
+if(n-i == 0){
+}
+})
+});
+
+}
+$('.casepicBox li').live('click',function(){
+$('.casepicList li.hover').removeClass('hover');
+$(this).addClass('hover');
+var temp_img = $(this).find('img').attr('src');
+var this_cur =0;
+
+$('.rightCase').find('li').each(function(i){
+this_cur++;
+
+if($(this).hasClass('hover')){
+return false;
+}
+})
+var btemp = 0;
+$(this).parents('.caseDetail').find('li').each(function(){
+btemp++;
+if($(this).hasClass('hover')){
+return false;
+}
+
+})
+ImgIndex = btemp-1;
+
+if(this_cur<=tImgLength){
+$('.this_count').eq(0).html(this_cur)
+}else{
+$('.this_count').eq(1).html(this_cur-tImgLength)
+}
+
+var img_type = temp_img.substr(temp_img.length-3,3)
+temp_img = temp_img.replace('.'+img_type+'.middle.'+img_type,'_bigpic.'+img_type);
+$('#caseBigPic').attr('src','').attr('src',temp_img);
+});
+var ImgIndex = 0;
+CaseDetailSet=3;
+var tImgLength =tempXGTImg.length, tImgLength2 =tempXGTImg2.length;
+if(tempXGTImg2==''){
+tImgLength2=0;
+}
+if($("#count1")[0]){
+$("#count1").html(tImgLength)
+}
+if($("#count2")[0]){
+$("#count2").html(tImgLength2)
+}
+$('#btn_scroll_left').click(function(){
+if(ImgIndex>=0){
+$('.rightCase li').eq(ImgIndex-1).click();
+//ImgIndex--;
+
+}else{
+$('.rightCase li').eq(LastImgLenght-2).click();
+//ImgIndex=LastImgLenght-1;
+}
+if(ImgIndex==tImgLength-1 && ImgIndex<=tImgLength+1){
+var temp_click = (ImgIndex-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){
+$('.btn_Right').eq(0).click();
+}
+return 0;
+}
+if(ImgIndex==tImgLength+tImgLength2-1){
+var temp_click = (ImgIndex-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){
+$('.btn_Right').eq(1).click();
+}
+return 0;
+}
+if(ImgIndex<tImgLength){
+if((ImgIndex-3*CaseDetailSet+1)%3==0 ){
+$('.btn_Left').eq(0).click();
+}
+}else{
+if((ImgIndex-(3*CaseDetailSet+tImgLength-1))%3==0){
+$('.btn_Left').eq(1).click();
+}
+}
+});
+var LastImgLenght = $('.rightCase li').length;
+$('#btn_scroll_right').click(function(){
+if(ImgIndex<LastImgLenght-1){
+$('.rightCase li').eq(ImgIndex+1).click();
+//ImgIndex++;
+}else{
+$('.rightCase li').eq(0).click();
+//ImgIndex=0;
+}
+if(ImgIndex==0){
+var temp_click = (tImgLength-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){
+$('.btn_Left').eq(0).click();
+}
+return 0;
+}
+if(ImgIndex==tImgLength){
+
+var temp_click = (tImgLength2-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){
+$('.btn_Left').eq(1).click();
+}
+return 0;
+}
+var list2_temp_index = LastImgLenght-tImgLength;
+var list2_temp_index2 = ImgIndex-tImgLength;
+if(ImgIndex==tImgLength){
+var temp_click = (ImgIndex-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){
+$('.btn_Right').eq(1).click();}return 0;
+}
+if(ImgIndex==0){
+var temp_click = (ImgIndex-CaseDetailSet*3)/3;
+for(var i =0;i<temp_click;i++){$('.btn_Right').eq(0).click();}
+return 0;
+}
+//if()
+if(ImgIndex<tImgLength){
+if((ImgIndex-3*CaseDetailSet)%3==0  && ImgIndex>CaseDetailSet*2+1){
+$('.btn_Right').eq(0).click();
+}
+}else{
+if((ImgIndex-(3*CaseDetailSet+tImgLength))%3==0 && ImgIndex>tImgLength+CaseDetailSet*2+1){
+$('.btn_Right').eq(1).click();
+}
+}
+});
+</SCRIPT>
+</html>

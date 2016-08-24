@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />  
+<meta name="author" content="ke01" />  
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="{dede:global.cfg_templets_skin/}/js/css3-mediaqueries.js"></script>
+<script src="{dede:global.cfg_templets_skin/}/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/common.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/config.js"></script>
+<!--[if lte IE 6]><SCRIPT src="{dede:global.cfg_templets_skin/}/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.lazyload.js"></script>
+</head>
+<body class="indexBody">
+{dede:include filename="head.htm"/}
+<script type="text/javascript">
+lpt_index =true;
+var aaaaa= 1;
+</script>
+<figure class="indexbanner" style=" background:url({dede:global.cfg_templets_skin/}/images/temp_banner.jpg) center no-repeat" id="indexbannerWrap">
+<div class="Btnwrap">
+<ul id="indexbanner"></ul>
+<a href="javascript:" class="btn_scroll_left" id="btn_scroll_left" title="向左翻页"></a>
+<a href="javascript:" class="btn_scroll_right" id="btn_scroll_right" title="向右翻页"></a>
+</div>
+</figure>
+<div class="banner_tips">
+<div class="wrap">
+<h1>三步获得AB模板网
+优秀设计师为您量身设计</h1>
+<span class="icon_jt"></span>
+<ul class="banner_tips_step">
+<li><span>1</span>在线沟通</li>
+<li><span>2</span>表述需求</li>
+<li><span>3</span>上门服务</li>
+<div class="cls"></div>
+</ul>
+<a href="javascript:;" onclick="window.open('tencent://message/?uin=970003436&Site=在线客服&Menu=yes');return false;" onClick="showOA()" class="OA" title="在线客服" rel="nofollow"></a>
+</div>
+</div>
+<section class="indexCase" style="padding-bottom:40px;padding-top:10px">
+<div class="wrap">
+<div class="title">
+<h1><a href="/case/" target="_blank" title="最新装饰装修案例">最新案例<span>New Case</span></a></h1>
+<menu> 
+{dede:channel typeid='4' type='son' row='20'}
+<a href="[field:typelink/]"  title=" [field:typename/]">[field:typename/]</a>
+{/dede:channel}	     
+</menu>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexCaseList js_check_width_list index_frist_CaseList" id="indexCaseList">
+{dede:arclist limit='0,12' titlelen='74' orderby=pubdate  typeid='4'  type='image.' flag='' addfields='fg,mj,sj' channelid='2'}
+ <figure class="indexCaseItem">
+    <p><img  original="[field:picname /]" src="/templets/moban/images/lazy.gif"  width="232" height="170" alt="[field:fulltitle/]" /><a href='[field:arcurl /]' title='[field:fulltitle/]' class='link'><span>
+    设计风格：[field:fg/]<br>
+        建筑类型：[field:typename /]<br>
+        实际面积：[field:mj/]㎡</span></a></p>
+     <figcaption><a href="[field:arcurl/]">[field:title/]</a></figcaption>
+</figure>
+{/dede:arclist}
+<div class="cls"></div>
+</section>
+</div>
+</section>
+<section class="black_bg">
+<div class="wrap">
+<div class="mobile_none" style="border-bottom:1px solid #ddd; height:0px; overflow:hidden; margin-top:20px;padding-top:15px"></div>
+<section class="indexNewsBlock">
+<div class="title">
+<h1><a href="/news/company_news/" target="_blank" title="公司动态">公司动态<span>Company News</span></a></h1>
+<a href="/news/company_news/" target="_blank" class="moreA" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexNewsBlockCon">
+<!--<p class="img mobile_none"><img src="/templets/moban/images/lazy.gif"  width="100%" id="IndexThreeBanner1" height="80"  alt="广州市正邦
+装饰有限公司"></p>-->
+<dl class="indexNewsDlist">
+{dede:arclist orderby=pubdate  titlelen=64 limit='0,8'  typeid='8'  flag=''  }
+<dt><span>[[field:pubdate function=strftime('%m-%d',@me)/]]</span> &nbsp;<a href="[field:arcurl/]" title="[field:fulltitle/]">
+[field:title/]</a></dt>
+{/dede:arclist}
+</dl>
+</section>
+</section>
+<section class="indexNewsBlock indexNewsBlockC">
+<div class="title">
+<h1><a href="/news/industry_news/" target="_blank" title="行业资讯">行业资讯<span>Industry News</span></a></h1>
+<a href="/news/industry_news/" class="moreA" target="_blank" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexNewsBlockCon">
+<!--<p class="img mobile_none"><img src="/templets/moban/images/lazy.gif" width="100%" id="IndexThreeBanner2" height="80"  alt="广州市正邦
+装饰有限公司"></p>-->
+<dl class="indexNewsDlist">
+{dede:arclist orderby=pubdate  titlelen=64 limit='0,8'  typeid='9'  flag=''  }
+<dt><span>[[field:pubdate function=strftime('%m-%d',@me)/]]</span> &nbsp;<a href="[field:arcurl/]" title="[field:fulltitle/]">
+[field:title/]</a></dt>
+{/dede:arclist}
+</dl>
+</section>
+</section>
+<section class="indexNewsBlock indexNewsBlockLast">
+<div class="title">
+<h1><a href="/knowledge/" target="_blank" title="装修知识">装修知识<span>Knowledge</span></a></h1>
+<a href="/knowledge/" target="_blank" class="moreA" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexNewsBlockCon">
+<!--<p class="img mobile_none"><img src="/templets/moban/images/lazy.gif" width="100%" id="IndexThreeBanner3" height="80"  alt="北京市正邦
+装饰有限公司"></p>-->
+<dl class="indexNewsDlist">
+{dede:arclist orderby=pubdate  titlelen=64 limit='0,8'  typeid='10'  flag=''  }
+<dt><span>[[field:pubdate function=strftime('%m-%d',@me)/]]</span> &nbsp;<a href="[field:arcurl/]" title="[field:fulltitle/]">
+[field:title/]</a></dt>
+{/dede:arclist}
+</dl>
+</section>
+</section>
+<div class="cls"></div>
+<section class="indexCase ">
+<div class="wrap">
+<!-- <div class="title">
+<h1><a href="special/special.html" target="_blank" title="精彩专题报道">精彩专题<span>Wonderful Topic</span></a></h1>
+<a href="special/special.html" class="moreA" target="_blank" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexCaseList indexCase_secend js_check_width_list" >
+<div class="cls"></div>
+</section> -->
+</div>
+</section>
+<section class="indexHonor">
+<div class="wrap">
+<div class="title">
+<h1><a href="#" target="_blank" title="代表客户">代表客户<span>Behalf Clients</span></a></h1>
+<a href="#" class="moreA" target="_blank" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexHonorList">
+{dede:arclist limit='0,6' titlelen='74' orderby=pubdate  typeid='12'  type='image.' flag=''  }
+ <figure class="indexHonorItem">
+<p><a href="[field:arcurl/]" title=" [field:fulltitle/]"><img original="[field:picname /]" src="/templets/moban/images/lazy.gif" width="170" height="123" alt="[field:fulltitle/]" /></a></p>
+<figcaption><a href="[field:arcurl/]" title="[field:fulltitle/]">[field:title/]</a></figcaption>
+</figure>
+{/dede:arclist}
+</section>
+<div class="cls"></div>
+</div>
+</section>
+<section class="indexkefu">
+<!--<div class="wrap">
+<div class="title">
+<h1><a href="#" target="_blank" title="正邦装饰代表客户 - 客户认可，我们的荣耀。">代表客户<span>Behalf Clients</span></a></h1>
+<a href="#" class="moreA" target="_blank" title="查看更多"><span class="cm_ico"></span>更多</a>
+<div class="cls"></div><span class="border"></span>
+</div>
+<section class="indexkefuList">
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='0,2' titlelen='74' orderby=pubdate  typeid='12'  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='2,2' titlelen='74' orderby=pubdate  typeid=''  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='4,2' titlelen='74' orderby=pubdate  typeid=''  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='6,2' titlelen='74' orderby=pubdate  typeid=''  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='8,2' titlelen='74' orderby=pubdate  typeid=''  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+<figure class="indexkefuItem">
+<ul>
+{dede:arclist limit='10,2' titlelen='74' orderby=pubdate  typeid=''  type='image.' flag=''  }
+<li>
+<p><a href='[field:arcurl /]' title="[field:fulltitle/]"><img original="[field:picname /]" src="[field:picname /]"  width="217" height="141" alt="[field:fulltitle/]" /></a></p>
+</li>
+{/dede:arclist}
+</ul>
+</figure>
+</section>
+<div class="cls"></div>
+</div>-->
+</section>
+<div class="cls"></div>
+</div>
+</section>
+﻿{dede:include filename="footer_index.htm"/}
+</body>
+<script type="text/javascript">
+index_page_is = true;
+var body_width = $('.wrap').eq(1).width();
+$(document).ready(function(){
+$("img").lazyload();
+LoadPageSize();
+for(var b = 1; b<=IndexThreeImg.length;b++){
+$('#IndexThreeBanner'+b).attr('src',IndexThreeImg[(b-1)]);
+}
+setInterval("AutoScroll()",10000);
+setInterval("nextBanner()",10000);
+})
+var IndexThreeImg = [
+      '{dede:global.cfg_templets_skin/}/images/13-38-34-10-1.jpg'        ,'{dede:global.cfg_templets_skin/}/images/13-38-55-39-1.jpg'      ,'{dede:global.cfg_templets_skin/}/images/13-39-11-90-1.jpg'  ];
+/*首页广告*/
+$('#btn_scroll_right').click(function(){
+var hover = $('#indexbanner').find('.hover');
+if(hover.next().is('li')){
+hover.fadeOut(500).next().fadeIn(500,function(){
+hover.removeClass('hover').next().addClass('hover'); 
+})
+}else{
+hover.fadeOut(500).siblings('li').eq(0).fadeIn(500,function(){
+hover.removeClass('hover').siblings('li').eq(0).addClass('hover'); 
+})
+}
+})
+$('#btn_scroll_left').click(function(){
+var hover = $('#indexbanner').find('.hover');
+if(hover.prev().is('li')){
+hover.fadeOut(500).prev().fadeIn(500,function(){
+hover.removeClass('hover').prev().addClass('hover'); 
+})
+}else{
+hover.fadeOut(500).siblings('li').last().fadeIn(500,function(){
+hover.removeClass('hover').siblings('li').last().addClass('hover');
+})
+}
+})
+function AutoScroll(obj){
+//clearInterval(timer1)
+       $('.indexkefuItem').find("ul:first").animate({
+                marginTop:"-141px"
+        },500,function(){
+                $(this).css({marginTop:"0px"}).find("li:first").appendTo(this);
+        });
+}
+function nextBanner(){
+$('#btn_scroll_right').click();
+}
+function showIndexBanner(){
+if($('#indexbanner').html()!=''){
+return false;
+}
+var bannerHTML = '';
+          bannerHTML+="<li class='hover'><a href='/about/profile/' target='_blank'><img  original='{dede:global.cfg_templets_skin/}/images/10-46-19-38-1.jpg' src='{dede:global.cfg_templets_skin/}/images/10-46-19-38-1.jpg' onload='LoadPageSize()'  width='1400'  alt='绿色装修专题报道'></a></li>";
+          bannerHTML+="<li class=''><a href='about/index.html' target='_blank'><img  original='{dede:global.cfg_templets_skin/}/images/11-26-48-77-1.jpg' src='{dede:global.cfg_templets_skin/}/images/11-26-48-77-1.jpg' onload='LoadPageSize()'  width='1400'  alt='2010年广州第16届亚运会合作伙伴'></a></li>";
+          bannerHTML+="<li class=''><a href='about/7.html' target='_blank'><img  original='{dede:global.cfg_templets_skin/}/images/11-27-22-94-1.jpg' src='{dede:global.cfg_templets_skin/}/images/11-27-22-94-1.jpg' onload='LoadPageSize()'  width='1400'  alt='打造中国绿色装饰航母'></a></li>";
+      $('#indexbanner').html(bannerHTML);
+}
+</script>
+</html>

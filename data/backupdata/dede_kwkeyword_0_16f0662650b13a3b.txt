@@ -1,0 +1,1 @@
+INSERT INTO `dede_kwkeyword` VALUES('1','4','音响产品图片','0','0','5','1340691384');

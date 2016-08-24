@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="{dede:global.cfg_templets_skin/}/js/css3-mediaqueries.js"></script>
+<script src="{dede:global.cfg_templets_skin/}/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/common.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/config.js"></script>
+<!--[if lte IE 6]><SCRIPT src="{dede:global.cfg_templets_skin/}/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.lazyload.js"></script></head>
+<body class="indexBody">
+{dede:include filename="head.htm"/}
+<script type="text/javascript">var module_id= 21,item_id=114,content_id='content';</script>
+<section class="mcur">
+<div class="wrap">
+<h1>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}<span>News</span></h1>
+<h2>
+<span></span>当前位置:{dede:field name='position'/}</h2>
+</div>
+</section>
+<menu class="PageMenuList">
+<div class="wrap">
+<ul id="PagemenuClass">   
+{dede:channel type='son' currentstyle="<li class='hover'><a href='~typelink~'>~typename~</a></li> "}
+<li class=""><a href='[field:typeurl/]'>[field:typename/]</a></li>
+{/dede:channel}
+    <div class="cls"></div>                                            
+    </ul>
+</div>
+</menu>
+<div class="wrap">
+<article class="newsDetail">
+    <header class="newstit">
+        <h1>{dede:field name="title"/}</h1>
+            <p><span>发布时间：{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}</span> <span>作者：{dede:field name='writer' /} </span> <span>来源：{dede:field name='source'/}</span> <span>点击：<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span> <span>字号：<a href="javascript:" class="icon_js_c">大</a><a href="javascript:" class="icon_js_c icon_js_c_hover">中</a><a href="javascript:" class="icon_js_c">小</a></span></p>
+        </header>
+        <article class='content' id="content">{dede:field name='body'/}</article>
+    <section class="Newsbshare">
+       <div class="bshare-custom icon-medium-plus">
+       <div id="bdshare" class="bdshare_b" style="float:left;line-height: 12px;"> 
+<!-- Baidu Button BEGIN -->
+<!-- Baidu Button END --></div>
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt"><b>分享到：</b></span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a class="jiathis_button_weixin">微信</a>
+	<a class="jiathis_button_xiaoyou">朋友网</a>
+	<a href="http://www.jiathis.com/share?uid=890199" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=890199" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+       </div>
+        </section>
+        <div class="cls"></div>
+        <section class="newsDetailCur">
+        <ul>
+        <li class="l">{dede:prenext get='pre'/}</li>
+        <li class="r">{dede:prenext get='next'/}</li>
+        <div class="cls"></div>
+        </ul>
+        </section>
+    </article> 
+    <section class="LikeNews">
+    <div class="title">
+        <h1><strong>相关文章</strong><span>Related Articles</span></h1>
+            <div class="cls"></div>
+<a class="btn_Left gray" href="javascript:" id="btn_Left"></a>
+<a class="btn_Right" href="javascript:" id="btn_Right"></a>
+            <span class="border"></span>
+        </div>
+     <div class="MoreCaseBoxCon" id="MoreCaseBoxCon" style="width:100%; overflow:hidden">
+        <ul class="NewsList" style="height:184px; overflow:hidden; padding-bottom:0px; margin-bottom:0px;" id="MoreCaseBox">
+{dede:arclist orderby=pubdate  titlelen=64 limit='0,12'  typeid=''  flag=''  }
+<li>
+    <p class="t1"><span class="green"></span></p>
+        <h3 class="t2"><a href="[field:arcurl/]" title="[field:fulltitle/]">[field:title/]</a></h3>
+        <p class="t3">[field:pubdate function=strftime('%Y-%m-%d',@me)/]</p>
+        <p class="t4">[field:description function='cn_substr(@me,80)'/]...</p>
+</li>
+{/dede:arclist}
+    <div class="cls"></div>
+    </ul>
+    </div>
+    </section>
+    </div>
+</div>
+﻿{dede:include filename="footer.htm"/}
+</body>
+<script type="text/javascript">
+newsIndexPage = true;
+var pmenuid = 14;
+$(document).ready(function(){
+LoadPageSize();
+$("img").lazyload();
+$('#PagemenuClass a').each(function(){
+if($(this).attr('value')==pmenuid){
+$(this).parent('li').addClass('hover'); return 0;
+}
+})
+})
+$('.icon_js_c').click(function(){
+$(this).addClass('icon_js_c_hover').siblings('.icon_js_c').removeClass('icon_js_c_hover');
+switch($(this).index()){
+case 0:$('#content').css('font-size','16px');
+$('#content p').css('font-size','16px');
+$('#content div').css('font-size','16px');
+break;
+case 1:$('#content').css('font-size','14px');
+$('#content p').css('font-size','14px');
+$('#content div').css('font-size','14px');
+break;
+case 2:
+$('#content').css('font-size','12px');
+$('#content p').css('font-size','12px');
+$('#content div').css('font-size','12px');break;
+}
+})
+SetMoreNewsPage = true;
+function SetMoreNews(cwidth,wt){
+var i = 0, p = $("#MoreCaseBoxCon ul"), pList =  $('#MoreCaseBoxCon li'), len = pList.length;
+var elePrev = $('#btn_Left'), eleNext =  $('#btn_Right');
+//var firstClick = false;
+elePrev.addClass('gray');
+eleNext.removeClass('gray');
+pList.removeClass('no_mr');
+if(wt==1){
+$('#MoreCaseBoxCon li').css('width',cwidth)
+}
+
+p.css('margin-left',0);
+var w = cwidth, num = wt;
+p.css('width',w*len);
+if (len <= num) 
+eleNext.addClass('gray');
+function prev(){
+if (elePrev.hasClass('gray')) {
+//alert('已经是第一张了');
+return;
+}
+p.animate({
+marginLeft:-(--i) * w
+},500);
+if (i < len - num) {
+eleNext.removeClass('gray');
+}
+if (i == 0) {
+elePrev.addClass('gray');
+}
+}
+function next(){
+if (eleNext.hasClass('gray')) {
+//alert('已经是最后一张了');
+return;
+}
+//p.css('margin-left',-(++i) * w);
+p.animate({
+marginLeft:-(++i) * w
+},500);
+if (i != 0) {
+elePrev.removeClass('gray');
+}
+if (i == len - num) {
+eleNext.addClass('gray');
+}
+}
+elePrev.unbind('click').bind('click',prev);
+eleNext.unbind('click').bind('click',next);
+pList.each(function(n,v){
+$(this).click(function(){
+if(n-i == 2){
+}
+if(n-i == 0){
+}
+})
+});
+
+}
+function duibi(a,b)
+{
+var arr=a.split("-");
+var starttime=new Date(arr[0],arr[1],arr[2]);
+var starttimes=starttime.getTime();
+var arrs=b.split("-");
+var lktime=new Date(arrs[0],arrs[1],arrs[2]);
+var lktimes=lktime.getTime();
+if(starttimes>=lktimes)
+{
+return false;
+}
+else
+return true;
+}
+var myDate = CurentTime();
+function CurentTime()
+    { 
+        var now = new Date();
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+        var hh = now.getHours();            //时
+        var mm = now.getMinutes();          //分
+        var clock = year + "-";
+        if(month < 10)
+       clock += "0";
+        clock += month + "-";
+        if(day < 10)
+         clock += "0";
+        clock += day;
+        return(clock); 
+    } 
+if(duibi(myDate,"")){
+$('#duibiImg').attr('src',"{dede:global.cfg_templets_skin/}/images/jungong_2.jpg");
+}
+</script>
+</html>

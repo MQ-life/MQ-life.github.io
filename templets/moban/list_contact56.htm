@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="{dede:global.cfg_templets_skin/}/js/css3-mediaqueries.js"></script>
+<script src="{dede:global.cfg_templets_skin/}/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="{dede:global.cfg_templets_skin/}/js/common.js" type="text/javascript"></SCRIPT>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/config.js"></script>
+<!--[if lte IE 6]><SCRIPT src="{dede:global.cfg_templets_skin/}/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.lazyload.js"></script>
+</head>
+<body class="indexBody">
+{dede:include filename="head.htm"/}
+<script type="text/javascript">var module_id= 3,item_id=6,content_id='content';</script>
+<section class="mcur">
+<div class="wrap">
+<h1>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}<span>AboutUs</span></h1>
+<h2>
+<span></span>当前位置:{dede:field name='position'/}</a>
+</h2>
+</div>
+</section>
+<menu class="PageMenuList">
+<div class="wrap">
+<ul id="PagemenuClass">   
+{dede:channel type='son' currentstyle="<li class='hover'><a href='~typelink~'>~typename~</a></li> "}
+<li class=""><a href='[field:typeurl/]'>[field:typename/]</a></li>
+{/dede:channel}
+    <div class="cls"></div>                                            
+    </ul>
+    <script type="text/javascript">
+    </script>
+</div>
+</menu>
+<div class="wrap">
+<div class="content">
+        <div class="about_contact">
+<div id="baidu_map" class="contact_map">&nbsp;</div>
+<div class="about_contact_left">
+{dede:field.content/}
+<ul class="weixin_list">
+    <li>
+    <p>正邦装饰网站名片</p>
+    <img class="f_l about_index_img" alt="绿菩提装饰电子名片" src="{dede:global.cfg_templets_skin/}/images/09-34-25-95-1.jpg" /></li>
+    <li>
+    <p>正邦装饰官方微信</p>
+    <img class="f_l about_index_img" alt="别墅装饰小助手" src="{dede:global.cfg_templets_skin/}/images/09-34-38-59-1.jpg" /></li>
+</ul>
+</div>
+<div class="cls">&nbsp;</div>
+</div>
+<div class="cls">&nbsp;</div>
+<!--<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script><script type="text/javascript">
+//创建和初始化地图函数：
+function initMap(){
+createMap();//创建地图
+setMapEvent();//设置地图事件
+addMapControl();//向地图添加控件
+addMarker();//向地图中添加marker
+}
+
+//创建地图函数：
+function createMap(){
+var map = new BMap.Map("baidu_map");//在百度地图容器中创建一个地图
+var point = new BMap.Point(113.419046,23.12643);//定义一个中心点坐标1/坐标是多少，可以用百度提供的拾取坐标系统
+"http://dev.baidu.com/wiki/static/map/API/tool/getPoint/"
+map.centerAndZoom(point,15);//设定地图的中心点和坐标并将地图显示在地图容器中
+window.map = map;//将map变量存储在全局
+}
+
+//地图事件设置函数：
+function setMapEvent(){
+map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+map.enableKeyboard();//启用键盘上下左右键移动地图
+}
+
+//地图控件添加函数：
+function addMapControl(){
+//向地图中添加缩放控件
+var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+map.addControl(ctrl_nav);
+//向地图中添加缩略图控件
+var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+map.addControl(ctrl_ove);
+//向地图中添加比例尺控件
+var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+map.addControl(ctrl_sca);
+}
+
+//标注点数
+var markerArr = [{title:"广州市绿菩提装饰有限公司",content:"广州市天河区中山大道中995号天旺阁商业中心四楼3H1/2,BRT黄村站下车过人行天桥，往东圃客运站方向前行200米园丁路即是。",point:"113.419046|23.12643",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+];
+//创建marker
+function addMarker(){
+for(var i=0;i<markerArr.length;i++){
+var json = markerArr[i];
+var p0 = json.point.split("|")[0];
+var p1 = json.point.split("|")[1];
+var point = new BMap.Point(p0,p1);
+var iconImg = createIcon(json.icon);
+var marker = new BMap.Marker(point,{icon:iconImg});
+var iw = createInfoWindow(i);
+var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+marker.setLabel(label);
+map.addOverlay(marker);
+label.setStyle({
+
+borderColor:"#808080",
+color:"#333",
+cursor:"pointer"
+});
+
+(function(){
+var index = i;
+var _iw = createInfoWindow(i);
+var _marker = marker;
+_marker.addEventListener("click",function(){
+this.openInfoWindow(_iw);
+});
+_iw.addEventListener("open",function(){
+_marker.getLabel().hide();
+})
+_iw.addEventListener("close",function(){
+_marker.getLabel().show();
+})
+label.addEventListener("click",function(){
+_marker.openInfoWindow(_iw);
+})
+if(!!json.isOpen){
+label.hide();
+_marker.openInfoWindow(_iw);
+}
+})()
+}
+}
+//创建InfoWindow
+function createInfoWindow(i){
+var json = markerArr[i];
+var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+return iw;
+}
+//创建一个Icon
+function createIcon(json){
+var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-
+
+json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+return icon;
+}
+
+initMap();//创建和初始化地图
+
+
+$(document).ready(function(){
+$('#cpContactList li').each(function(i){
+if((i+1)%3==0&&i>0){
+$(this).addClass('no_pr')
+}
+})
+
+})
+</script>            
+    -->
+  
+<div class="cls"></div>
+</div>
+</div>
+{dede:include filename="footer.htm"/}
+</body>
+<script type="text/javascript">
+var city_cookie = get_cookie('city').replace('|','');
+if(city_cookie!=0){
+GetAboutMenu(city_cookie,"公司简介");
+}
+
+var classmemu = "AboutNavMenu6";
+newsIndexPage = true;
+var pmenuid = 0;
+$(document).ready(function(){
+LoadPageSize();
+$("img").lazyload();
+$('#aboutNavMenu').find('.'+classmemu).addClass('b');
+$('#PagemenuClass a').each(function(){
+if($(this).attr('value')==pmenuid){
+$(this).parent('li').addClass('hover'); return 0;
+}
+})
+})
+$('.icon_js_c').click(function(){
+$(this).addClass('icon_js_c_hover').siblings('.icon_js_c').removeClass('icon_js_c_hover');
+switch($(this).index()){
+case 0:$('#content').css('font-size','16px');break;
+case 1:$('#content').css('font-size','14px');break;
+case 2:$('#content').css('font-size','12px');break;
+}
+})
+</script>
+</html>

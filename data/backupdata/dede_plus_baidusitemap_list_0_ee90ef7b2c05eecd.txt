@@ -1,0 +1,1 @@
+INSERT INTO `dede_plus_baidusitemap_list` VALUES('1','http://www.zhimd.com/plus/baidusitemap.php?dopost=sitemap_index&type=indexall&pwd=b8fe561e6d9fc20401&pagesize=0','1','1407334621','0');

@@ -1,0 +1,45 @@
+<?php
+$z[0]=Array("field","",58,77);
+$z[0][4]['name']="title";
+$z[1]=Array("global","",78,104);
+$z[1][4]['name']="cfg_webname";
+$z[2]=Array("field","",145,174);
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",214,272);
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("global","",400,432);
+$z[4][4]['name']="cfg_templets_skin";
+$z[5]=Array("global","",517,549);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("global","",599,631);
+$z[6][4]['name']="cfg_templets_skin";
+$z[7]=Array("global","",687,719);
+$z[7][4]['name']="cfg_templets_skin";
+$z[8]=Array("global","",791,823);
+$z[8][4]['name']="cfg_templets_skin";
+$z[9]=Array("global","",908,940);
+$z[9][4]['name']="cfg_templets_skin";
+$z[10]=Array("global","",997,1029);
+$z[10][4]['name']="cfg_templets_skin";
+$z[11]=Array("global","",1206,1238);
+$z[11][4]['name']="cfg_templets_skin";
+$z[12]=Array("include","",1306,1341);
+$z[12][4]['filename']="head.htm";
+$z[13]=Array("field","\$ID = @me; \$sql = \"SELECT * FROM `dede_arctype` WHERE id=\$ID\";\$query = mysql_query(\$sql);\$row=mysql_fetch_array(\$query); \$relID = \"\$row[reid]\"; if(\$relID == 0) {@me = \$row[typename];}else{\$sql = \"SELECT `typename` FROM `dede_arctype` WHERE id=\$relID\";\$query = mysql_query(\$sql);\$row=mysql_fetch_array(\$query); @me = \$row[typename];}",1482,1866);
+$z[13][4]['name']="typeid";
+$z[13][4]['runphp']="yes";
+$z[14]=Array("field","",1922,1951);
+$z[14][4]['name']="position";
+$z[15]=Array("channel","\r\n<li class=\"\"><a href='[field:typeurl/]'>[field:typename/]</a></li>\r\n",2055,2240);
+$z[15][4]['type']="son";
+$z[15][4]['currentstyle']="<li class='hover'><a href='~typelink~'>~typename~</a></li>";
+$z[16]=Array("list","\r\n    <li>\r\n    <p class=\"t1\"><span class=\"green\"></span></p>\r\n        <h3 class=\"t2\"><a href='[field:arcurl /]' title=\"[field:fulltitle/]\">[field:title/]</a></h3>\r\n        <p class=\"t3\">[field:pubdate function=strftime('%Y-%m-%d',@me)/]</p>\r\n        <p class=\"t4\">[field:description function='cn_substr(@me,80)'/]...</p>\r\n    </li>\r\n   ",2456,2830);
+$z[16][4]['pagesize']="12";
+$z[17]=Array("pagelist","",2949,3027);
+$z[17][4]['listitem']="info,index,end,pre,next,pageno,option";
+$z[17][4]['listsize']="5";
+$z[18]=Array("include","",3057,3094);
+$z[18][4]['filename']="footer.htm";
+
+?>

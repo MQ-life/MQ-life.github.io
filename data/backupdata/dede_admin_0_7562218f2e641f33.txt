@@ -1,0 +1,1 @@
+INSERT INTO `dede_admin` VALUES('1','10','admin','f297a57a5a743894a0e4','admin','Www.Adminbuy.Cn','www.henhaixu.com','','1417445078','125.116.86.206');
